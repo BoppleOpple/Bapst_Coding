@@ -4,7 +4,7 @@
 
 This section is *mostly* about reading, understanding, and parsing ACSL's pseudocode. From the ACSL site, here are some examples of problems:
 
-# Problems
+# Example Problems
 
 ## Problem 1
 
@@ -66,6 +66,23 @@ C(N) = B(K)
 
 ***
 
+## Problem 4
+
+What is printed when this program is run?
+
+```lua
+a = 1: b = 2: c = 3: d = 4: e = 4: f = 6
+if (d / b) < (f / a) then d = d / b
+a = f ↑ b / c ↑ (d / b)
+if (a <= f) && (b > e) then a = f else b = e
+if abs(c - f) != int(f / c) then c = f / c else f = f / c
+if (a = = b) | | (c = = d) then a = a + b
+c = c + d
+output (b * c) * (f + d) / a / 2 * d - c + e ↑ (b - 2 * d)
+```
+
+***
+
 # Solutions
 
 ## Problem 1
@@ -109,3 +126,28 @@ The following table traces the variables through the execution of the program.
 | 5 | 2 | 7 | -100 | 81   | 81   |
 
 Thus, the value of `C(4)` is **52**. Note that this program merges two arrays in increasing order into one array until a negative number is input.
+
+***
+
+## Problem 4
+
+The following table contains the values of `a`, `b`, `c`, `d`, `e`, and `f` after each line:
+
+| a  | b | c | d | e | f |
+| -- | - | - | - | - | - |
+| 1  | 2 | 3 | 4 | 4 | 6 |
+| 1  | 2 | 3 | 2 | 4 | 6 |
+| 12 | 2 | 3 | 2 | 4 | 6 |
+| 12 | 4 | 3 | 2 | 4 | 6 |
+| 12 | 4 | 2 | 2 | 4 | 6 |
+| 16 | 4 | 2 | 2 | 4 | 6 |
+| 16 | 4 | 4 | 2 | 4 | 6 |
+
+```py
+(b * c) * (f + d) / a / 2 * d - c + e ↑ (b - 2 * d)
+= (4 * 4) *(6 + 2) / 16 / 2 * 4 - 4 + 4 ↑ (4 - 2 * 2)
+= 16 * 8 / 16 / 2 * 4 - 4 + 40
+= 128 / 16 / 2 * 2 - 4 + 1 = 8 / 2 * 2 - 4 + 1 = 5
+```
+
+Output: **5**
