@@ -1,2 +1,0 @@
-A file to show this directory in github
-Remove this when actual content is added
