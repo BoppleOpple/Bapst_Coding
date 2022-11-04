@@ -35,7 +35,7 @@ After the following program is executed, what is the final value of `NUM`?
 A = “BANANAS”
 NUM = 0: T = “”
 for J = len(A) - 1 to 0 step –1
-	T = T + A[j]
+	T = T + A[J]
 next
 for J = 0 to len(A) - 1
 	if A[J] == T[J] then NUM = NUM + 1
@@ -51,13 +51,13 @@ After the following program is executed, what is the final value of `C[4]`?
 ```lua
 A(0) = 12: A(1) = 41: A(2) = 52
 A(3) = 57: A(4) = 77: A(5) = -100
-B(0) = 17: B(1) = 34: B(20) = 81
+B(0) = 17: B(1) = 34: B(2) = 81
 J = 0: K = 0: N = 0
 while A(J) > 0
 	while B(K) <= A(J)
 		C(N) = B(K)
 		N = N + 1
-		k = k + 1
+		K = K + 1
 	end while
 	C(N) = A(J): N = N + 1: J = J + 1
 end while
